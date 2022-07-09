@@ -1,0 +1,129 @@
+/*  End Nav   */
+#sidebar {
+    min-width: 300px;
+    max-width: 300px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background: white;
+    color: #878787;
+    transition: all 0.6s cubic-bezier(0.945, 0.02, 0.27, 0.665);
+    transform-origin: bottom left;
+  }
+  
+  #sidebar.active {
+    margin-left: -300px;
+    transform: rotateY(100deg);
+  }
+  
+  
+  #sidebarCollapse {
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    cursor: pointer;
+  }
+  
+  #sidebarCollapse span {
+    width: 80%;
+    height: 2px;
+    margin: 0 auto;
+    display: block;
+    background: #555;
+    transition: all 0.8s cubic-bezier(0.81, -0.33, 0.345, 1.375);
+    transition-delay: 0.2s;
+  }
+  
+  #sidebarCollapse span:first-of-type {
+    transform: rotate(45deg) translate(2px, 2px);
+  }
+  #sidebarCollapse span:nth-of-type(2) {
+    opacity: 0;
+  }
+  #sidebarCollapse span:last-of-type {
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+  
+  #sidebarCollapse.active span {
+    transform: none;
+    opacity: 1;
+    margin: 5px auto;
+  }
+  
+/*  End Nav   */
+
+
+.sidebar-container{
+    position: fixed !important;
+}
+
+
+        /*  Back Button   */
+
+#sidebar ul.back-button {
+    padding: 20px;
+  }
+  
+  #sidebar ul.back-button a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  }
+  
+  #sidebar ul.back-button a:hover,
+  a.back-button:focus,
+  a.back-button:active {
+    background-color: #067586 !important;
+    margin-right: 0 !important;
+  }
+
+  .home-button {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+  }
+  
+  .back-to-home {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 10px !important;
+    padding-bottom: 7px !important;
+  }
+
+   /*  End Button   */
+   
+   @media (max-width: 768px) {
+    #sidebar {
+      min-width: 250px;
+      max-width: 250px;
+      margin-left: -250px;
+      transform: rotateY(90deg);
+    }
+    #sidebar.active {
+      margin-left: 0;
+      transform: none;
+    }
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+      transform: none;
+      opacity: 1;
+      margin: 5px auto;
+    }
+    #sidebarCollapse.active span {
+      margin: 0 auto;
+    }
+    #sidebarCollapse.active span:first-of-type {
+      transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse.active span:nth-of-type(2) {
+      opacity: 0;
+    }
+    #sidebarCollapse.active span:last-of-type {
+      transform: rotate(-45deg) translate(1px, -1px);
+    }
+    #sidebar ul.components {
+      padding-left: 1rem;
+    }
+  }
