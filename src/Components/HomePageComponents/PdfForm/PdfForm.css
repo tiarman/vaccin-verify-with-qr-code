@@ -1,0 +1,20 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.pdf2nd-section{
+    background-color: #dafff2;
+    /* height: 300px;
+    width: 100%; */
+    line-height: 200px;
+    text-align: center;
+}
+.table-align-pdfform{
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.table td, .table th{
+    padding: 10px 0px 0px 10px;
+    /* vertical-align: middle; */
+}
+.pdf-align1{background-color: whitesmoke;}

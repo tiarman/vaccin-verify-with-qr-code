@@ -1,0 +1,128 @@
+.header{
+    height: 100px;
+    background-color: #a7d8de !important;
+}
+
+
+.header .navbar{
+    /* z-index: 3500; */
+    transition: 0.3s;
+}
+
+.header .navbar .brand-logo{
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.header .nav-item .nav-link{
+    margin: 0 10px;
+    color: black !important;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.header .nav-item .nav-link.user-avatar{
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.header .nav-item .nav-link.login-btn {
+    background-color: #6c5ce7;
+    color: white !important;
+    padding: 5px 15px;
+    border-radius: 50px;
+    border: 5px solid #6c5ce7;
+    transition: 0.3s;
+}
+
+.header .nav-item .nav-link.login-btn:hover {
+    background-color: black;
+    color: white !important;
+}
+
+.header .navbar-nav{
+    align-items: center;
+}
+
+#loggedIn-user-info {
+    width: fit-content;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 20px 30px;
+    border-radius: 10px;
+    position: fixed;
+    z-index: 100;
+    right: 20px;
+    top: 90px;
+}
+
+#loggedIn-user-info img {
+    border-radius: 100%;
+    width: 100px;
+}
+
+.logout-btn{
+    border: 1px solid #6c5ce7;
+    padding: 5px 20px;
+    background: #ffffff;
+    color: #6c5ce7;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.logout-btn:hover{
+    background: #6c5ce7;
+    color: #ffffff;
+}
+
+/* Responsive css */
+
+@media (max-width: 991px){
+    
+    .loggedIn-user-info{
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .header .navbar .brand-logo{
+        font-size: 24px;
+    }
+}
+.main-nav-align a{
+    color: black !important;
+    line-height: 10px;
+    /* margin-bottom: 30px; */
+}
+.main-nav-align{
+    /* background-color: whitesmoke; */
+    background-color: whitesmoke;
+    /* background-color: rgba(0, 255, 128, 0.349); */
+}
+.navbar-dark .navbar-toggler{
+    border-color: rgb(255, 0, 0);
+}
+.navbar-toggler-icon{
+    color: aqua;
+}
+.nav-align-main{
+    background-color: whitesmoke !important;
+}
+
+.text-gradient {
+    background-color: #CA4246 !important;
+    /* background-image: linear-gradient( 45deg, #CA4246 16.666%, #E16541 16.666%, #E16541 33.333%, #F18F43 33.333%, #F18F43 50%, #8B9862 50%, #8B9862 66.666%, #476098 66.666%, #476098 83.333%, #A7489B 83.333%) !important; */
+    background-image: linear-gradient( 45deg, blue 16.666%, #E16541 16.666%, blue 33.333%, #F18F43 33.333%, blue 50%, #F18F43 50%, #8B9862 66.666%, #476098 66.666%, #476098 83.333%, #A7489B 83.333%) !important;
+    background-size: 100% !important;
+    background-repeat: repeat !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: rainbow-text-simple-animation-rev 0.75s ease forwards !important;
+    font-family: 'Berlin Sans FB Demi', sans-serif;
+                                                
+}
+
+.text-gradient:hover {
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards !important;
+}
