@@ -41,6 +41,10 @@
     "react-moving-text": "^0.0.7",
     "react-particles-js": "^3.4.1",
     "react-pro-sidebar": "^0.7.1",
+<<<<<<< HEAD
+=======
+    "react-qr-code": "^2.0.7",
+>>>>>>> e4fbe45e978776280dbe0e1c22775627b43c1d8b
     "react-reveal": "^1.2.2",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.4.3",

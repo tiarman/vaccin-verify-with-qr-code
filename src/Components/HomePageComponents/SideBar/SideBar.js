@@ -30,6 +30,7 @@ const SideBar = ({ show, adminLoading }) => {
           <Menu iconShape="square">
           <MenuItem icon={<FaGem />}>Input Form <Link to="/dashboard/inputform" className={panel === "inputform"} ></Link></MenuItem>
           <MenuItem icon={<FaGem />}>Manage Input Form <Link to="/dashboard/manageinputform" className={panel === "manageinputform"} ></Link></MenuItem>
+          <MenuItem icon={<FaGem />}>ShowQrCodePage <Link to="/dashboard/show-qr-code" className={panel === "manageinputform"} ></Link></MenuItem>
 
           </Menu>
 

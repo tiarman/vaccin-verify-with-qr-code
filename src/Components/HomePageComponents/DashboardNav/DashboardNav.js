@@ -19,6 +19,7 @@ const DashboardNav = ({ setShowSidebar, show }) => {
                     {
                      panel === "inputform" ? "InputForm"
                      :panel === "manageinputform" ? "ManageInputForm"
+                     :panel === "show-qr-code" ? "ShowQrCodePage"
                      : ""
                     }
                 </h2>

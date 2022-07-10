@@ -5,7 +5,11 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import ContentLoader from 'react-content-loader';
 import { baseUrl } from '../../../../config';
+import QRCode from 'react-qr-code';
+import ShowQrCodePage from '../../ShowQrCodePage/ShowQrCodePage';
 // import { baseUrl } from '../../../../config';
+
+
 
 const InputForm = () => {
     const history = useHistory();
@@ -26,12 +30,26 @@ const InputForm = () => {
         totaldose: '',
     });
 
+    // qr code
+    const [qrCodeValue,setQrCodeValue]=useState('');
+    const [showQrCode,setShowQrCode]=useState(false);
+
+    const handleShowQr=()=>{
+        setShowQrCode(false)
+    }
+
+    
+
     const [picture, setPicture] = useState([]);
     const [errorList, setError] = useState([]);
 
     const handleInput = (e) =>{
         e.persist();
         setheaderInput({...headerInput, [e.target.name]:e.target.value});
+        if(e?.target?.name == 'passportno'){
+            setQrCodeValue(e?.target?.value);
+            // console.log('test:',e?.target?.name,value)
+        }
 
     }
 
@@ -42,6 +60,8 @@ const InputForm = () => {
 
     const submitHeader =(e) => {
         e.preventDefault();
+
+        setShowQrCode(true);
 
         const formData = new FormData();
         
@@ -87,8 +107,9 @@ const InputForm = () => {
         });
         
     }
-    return (
-        <div className="container-fluid px-4">
+    return (<>
+    {
+        !showQrCode? <div className="container-fluid px-4">
                       <div className="card mt-4">
                                   <div className="card-header">
                                       <h4>
@@ -232,7 +253,29 @@ const InputForm = () => {
                                   </div>
                 
                       </div>
+
+{/* <ShowQrCodePage  qrCodeValue={qrCodeValue} showQrCode = {showQrCode}></ShowQrCodePage> */}
+
                   </div>
+
+:<div >
+ <button className='btn btn-dark' onClick={handleShowQr}>Back</button>    
+<div className='text-center'>
+<h5 className='text-success'>Successfully Added and generated QR Code !!!</h5>
+<h4 className='text-dark'>You can verify your vaccination by scanning QR Code</h4>
+<p>Scan the QR code , click the URL.</p>
+     <QRCode
+    className='mt-5'
+    title='Testing QR code'
+    bgColor='white'
+    fgColor='black'
+    value={`http://localhost:3000/dashboard/${qrCodeValue}`}
+    >
+    </QRCode>
+</div>
+</div>
+}
+    </>
     );
 };
 
