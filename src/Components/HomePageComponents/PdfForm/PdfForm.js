@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import NavPdfForm from '../AllPdfFormPage/NavPdfForm/NavPdfForm';
 import certi from '../../../Images/certi.png'
 import bdlogo from '../../../Images/bdlogo.png'
@@ -6,8 +6,27 @@ import mojib from '../../../Images/mojib.png'
 import img1 from '../../../Images/img1.png'
 import './PdfForm.css'
 import Footer from '../AllPdfFormPage/Footer/Footer';
+import { useParams } from 'react-router-dom';
+import { baseUrl } from '../../../config';
 
 const PdfForm = () => {
+const {id}=useParams();
+
+const [allData,setAllData]=useState([]);
+const [verifyData,setVerifyData]=useState({});
+
+useEffect(()=>{
+  const url =`${baseUrl}/verify`;
+  fetch(url)
+  .then(res=>res.json())
+  .then(data=>setAllData(data.allpdf))
+},[]);
+
+useEffect(()=>{
+  const targetData=allData.find( passNo=> passNo?.passportno==id);
+  setVerifyData(targetData);
+},[allData]);
+
     return (
         <div className='pdf-align1'>
            <div>
@@ -78,51 +97,51 @@ const PdfForm = () => {
   <tbody>
     <tr>
       <th scope="row"><p>Certificate No: <br/> সার্টিফিকেট নং:</p></th>
-      <td>Mark</td>
+      <td>{verifyData?.certificateno}</td>
       <td><p>Date of Vaccination (Dose 1): <br/> টিকা প্রদানের তারিখ (ডোজ ১):</p></td>
-      <td>@mdo</td>
+      <td>{verifyData?.datedose1}</td>
     </tr>
     <tr>
       <th scope="row"><p>NID Number: <br/> জাতীয় পরিচয়পত্র নং:</p></th>
-      <td>Jacob</td>
+      <td>{verifyData?.nidnumber}</td>
       <td><p>Name of Vaccine (Dose 1): <br/> টিকার নাম (ডোজ ১):</p></td>
-      <td>@fat</td>
+      <td>{verifyData?.namedose1}</td>
     </tr>
     <tr>
     <th scope="row"><p>Passport No: <br/> পাসপোর্ট নং:</p></th>
-      <td></td>
+      <td>{verifyData?.passportno}</td>
       <td><p>Date of Vaccination (Dose 2): <br/> টিকা প্রদানের তারিখ (ডোজ ২):</p></td>
-      <td>@fat</td>
+      <td>{verifyData?.dateofdose2}</td>
     </tr>
     <tr>
     <th scope="row"><p>Country/Nationality: <br/> দেশ/জাতীয়তা:</p></th>
-      <td></td>
+      <td>{verifyData?.nationality}</td>
       <td><p>Name of Vaccine (Dose 2): <br/> টিকার নাম (ডোজ ২):</p></td>
-      <td>@fat</td>
+      <td>{verifyData?.namedose2}</td>
     </tr>
     <tr>
     <th scope="row"><p>Name: <br/> নাম::</p></th>
-      <td></td>
-      <td><p>Name of Vaccine (Dose 2): <br/> টিকার নাম (ডোজ ২):</p></td>
-      <td>@fat</td>
+      <td>{verifyData?.name}</td>
+      {/* <td><p>Name of Vaccine (Dose 2): <br/> টিকার নাম (ডোজ ২):</p></td>
+      <td>@fat</td> */}
     </tr>
     <tr>
     <th scope="row"><p>Date of Birth: <br/> জন্ম তারিখ:</p></th>
-      <td></td>
+      <td>{verifyData?.dateofbirth}</td>
       <td><p>Vaccination Center: <br/> টিকা প্রদানের কেন্দ্র:</p></td>
-      <td>@fat</td>
+      <td>{verifyData?.vaccincenter}</td>
     </tr>
     <tr>
-    <th scope="row"><p>Date of Birth: <br/> জন্ম তারিখ:</p></th>
-      <td></td>
-      <td><p>Vaccinated By: <br/> টিকা প্রদানকারী::</p></td>
-      <td>@fat</td>
+    <th scope="row"><td><p>Vaccinated By: <br/> টিকা প্রদানকারী::</p></td></th>
+     
+      
+      <td>{verifyData?.vaccinatedby}</td>
     </tr>
     <tr>
     <th scope="row"><p>Gender: <br/> লিঙ্গ:</p></th>
-      <td>Jacob</td>
+      <td>{verifyData?.gender}</td>
       <td><p> Total Doses Given: <br /> মোট ডোজ সংখ্যা:</p></td>
-      <td>@fat</td>
+      <td>{verifyData?.totaldose}</td>
     </tr>
 
     

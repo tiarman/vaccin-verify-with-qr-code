@@ -61,7 +61,7 @@ const InputForm = () => {
     const submitHeader =(e) => {
         e.preventDefault();
 
-        setShowQrCode(true);
+        
 
         const formData = new FormData();
         
@@ -84,9 +84,8 @@ const InputForm = () => {
         // console.log(formData.get('tittle'));
         // console.log(formData.get('description'));
 
-
         axios.post(`${baseUrl}/store-pdf`, formData).then(res=>{
-            // console.log("Datas",res.formData);
+            console.log("Datas",res.status);
 
             if(res.data.status === 200)
             {
@@ -94,6 +93,7 @@ const InputForm = () => {
                 swal("Success", res.data.message, "success");
                 e.target.reset(" ");
                 setError([]);
+                setShowQrCode(true);
                 
             }
             else if(res.data.status === 422)
@@ -269,7 +269,7 @@ const InputForm = () => {
     title='Testing QR code'
     bgColor='white'
     fgColor='black'
-    value={`http://localhost:3000/dashboard/${qrCodeValue}`}
+    value={`http://localhost:3000/pdfform/${qrCodeValue}`}
     >
     </QRCode>
 </div>

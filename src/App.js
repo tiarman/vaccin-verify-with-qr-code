@@ -28,7 +28,7 @@ class App extends React.Component {
           <Route exact path="/">
             <Dashboard />
           </Route>
-          <Route path="/pdfform">
+          <Route path="/pdfform/:id">
           <PdfForm />
           </Route>
           <Route path="/dashboard/:panel">
